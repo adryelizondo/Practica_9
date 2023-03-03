@@ -1,49 +1,48 @@
 from tkinter import Tk, Button, Frame, Label, Entry, messagebox 
+from validacion import *
 
-idcorreo= "121040747@upq.edu.mx"
-idcontraseña= "121040747"
+correo = "121040747@upq.edu.mx"
+contraseña = "121040747"
 
-#Validar datos
-def validardatos(): 
-    if idcorreo== correo1.get() and idcontraseña == Contraseña1.get():
-        messagebox.showinfo("Se inicio sesión con exito")
-    else: 
-        messagebox.showerror("Los datos son incorrectos")
+def validar():
+    Validacion=validar_datos(correo1.get(), contraseña1()) 
 
-#Instanciamos la ventana
-ventana= Tk()
-ventana.title("Login")
-ventana.geometry("500x400")
+
+#Instanciar Ventana
+ventana = Tk()
+ventana.title("Inicio de sesión")
+ventana.geometry("720x480")
 
 #Frames
-seccion1=Frame(ventana, bg="blue") 
-seccion1.pack(expand=True,fill="both")
+section1 = Frame(ventana,bg="black")
+section1.pack(expand=True,fill='both')
+section2 = Frame(ventana,bg="gray")
+section2.pack(expand=True,fill='both')
+section3 = Frame(ventana,bg="white")
+section3.pack(expand=True,fill='both')
 
-#botones
-correo = Label (seccion1, text="Correo", font="Arial", bg="white" )
-correo.place(x=20, y=50)
+#Crear Etiquetas / Botones
+iniciolabel = Label(section1,text=" INICIO DE SESION")
+iniciolabel.pack()
+correolabel = Label(section1,text="Ingrese correo: ")
+correolabel.place(x=50,y=100,width=105,height=25)
+contraseñalabel = Label(section2,text="Ingrese Contraseña: ")
+contraseñalabel.place(x=50,y=100,width=120,height=25)
+                        
 
-Contraseña= Button (seccion1, text="Contraseña", font= "Arial 12", bg="white" )
-Contraseña.place(x=20, y=100)
+#Cajas de texto
+correo1 = Entry(section1)
+correo1.place(x=250,y=100,width=200,height=25)
 
-# Para crear caja de texto.
-correo1 = Entry(seccion1)
-correo1.place(x=90,y=50)
+contraseña1 = Entry(section2)
+contraseña1.place(x=250,y=100,width=200,height=25)
 
-Contraseña1= Entry(seccion1)
-Contraseña1.place(x=120,y=100)
-
-#segundo frame 
-seccion2=Frame(ventana,bg="white" )
-seccion2.pack(expand=True,fill="both")
-
-#boton login
-Login=Button(seccion2, text="Login", font="Arial 12", bg="white", command= validardatos)
+#Botones
+Login = Button(section3, text="Iniciar", bg="blue")
 Login.pack()
 
-#Llamamos el mainloop
+# Main para la ventana 
 ventana.mainloop()
-
 
 
 

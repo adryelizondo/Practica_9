@@ -5,6 +5,7 @@ class Personaje:
  
 #definimos el constructor de personaje 
  def __init__(self,esp ,nom,alt):
+      
 #encapsulamos nuestros atributos
   self.__especie= esp
   self.__nombre= nom
